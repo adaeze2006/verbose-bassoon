@@ -1,0 +1,39 @@
+
+# Sample data
+data = {
+    'Gender': ['Male'] * 10 + ['Female'] * 10,
+    'Breath_Holding_Time': [30, 35, 40, 45, 50, 55, 60, 65, 70, 75,
+                            25, 30, 35, 40, 45, 50, 55, 60, 65, 70]
+}
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Set up the figure
+plt.figure(figsize=(12, 6))
+
+# Histogram (Ignoring Sex)
+plt.subplot(1, 2, 1)
+sns.histplot(df['Breath_Holding_Time'], bins=10, kde=True, color='skyblue')
+plt.title('Histogram of Breath Holding Times (Ignoring Sex)')
+plt.xlabel('Breath Holding Time (seconds)')
+plt.ylabel('Frequency')
+
+# Side-by-Side Dot Plot
+plt.subplot(1, 2, 2)
+sns.stripplot(x='Breath_Holding_Time', y='Gender', data=df, jitter=True, palette='Set2')
+plt.title('Side-by-Side Dot Plot of Breath Holding Times by Gender')
+plt.xlabel('Breath Holding Time (seconds)')
+plt.ylabel('Gender')
+
+# Show the plots
+plt.tight_layout()
+plt.show()
+```
+
+
+
+```bash
+pip install matplotlib seaborn pandas
+```
+
